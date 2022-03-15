@@ -8,3 +8,4 @@
       tags:
         - install
         - core
+- import_playbook: tasks/core.yml
