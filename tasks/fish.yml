@@ -1,0 +1,34 @@
+---
+- name: Install Fish Plugins
+  hosts: localhost
+  become: false
+  vars:
+    fisher_plugins:
+      - jethrokuan/z
+      - IlanCosman/tide@v5
+      - jhillyerd/plugin-git
+      - PatrickF1/fzf.fish
+      - edc/bass
+      - andreiborisov/sponge
+      - IlanCosman/tide@v5
+    fisher_dependencies:
+      - fish
+  pre_tasks:
+    - name: "Ensure fish is in PATH"
+      package:
+        name: "{{ item }}"
+        state: present
+      check_mode: true
+      loop: "{{ fisher_dependencies }}"
+      register: package_check
+    - name: "Fish packages"
+      debug:
+        msg: "Fish dependencies are installed"
+      when: package_check is succeeded
+  tasks:
+    - name: "Install Fisher Plugins"
+      loop: "{{ fisher_plugins }}"
+      ansible.builtin.shell:
+        cmd: fisher install {{item|quote}}
+      args:
+        executable: /home/linuxbrew/.linuxbrew/bin/fish
