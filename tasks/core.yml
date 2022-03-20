@@ -49,14 +49,16 @@
 
   tasks:
     - name: Updating Homebrew
-      homebrew:
-        update_homebrew: true
+      community.general.homebrew:
+        update_homebrew: yes
       when:
         - homebrew_check.stat.exists
 
     - name: Upgrading Homebrew Packages
-      homebrew:
-        upgrade_all: "{{ upgrade_homebrew_packages }}"
+      community.general.homebrew:
+        name: "{{ brew_packages }}"
+        upgrade_all: yes
       register: result
       until: result is successful
       when: homebrew_check.stat.exists
+
