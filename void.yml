@@ -1,4 +1,5 @@
 - hosts: localhost
 - import_playbook: tasks/core.yml
 - import_playbook: tasks/fish.yml
+- import_playbook: tasks/git.yml
 

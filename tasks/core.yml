@@ -29,6 +29,24 @@
       - tmux
     install_homebrew_if_missing: true
     upgrade_homebrew_packages: true
+    go_install_packages:
+      - github.com/google/wire/cmd/wire@latest
+      - google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+      - google.golang.org/protobuf/cmd/protoc-gen-go@latest
+      - mvdan.cc/sh/v3/cmd/shfmt@latest
+    lua_packages:
+      - luacheck
+    npm_packages:
+      - npm
+      - neovim
+      - bash-language-server
+      - vscode-langservers-extracted
+      - graphql-language-service-cli
+      - solidity-language-server
+      - typescript-language-server
+    pip_packages:
+      - pynvim
+      - pyright
 
   pre_tasks:
     - name: Ensuring Homebrew Is Installed
@@ -62,3 +80,24 @@
       until: result is successful
       when: homebrew_check.stat.exists
 
+    - name: Installing go packages
+      loop: "{{ go_install_packages }}"
+      ansible.builtin.shell:
+        cmd: go install {{item|quote}}
+
+    - name: Installing luarocks packages
+      loop: "{{ lua_packages }}"
+      ansible.builtin.shell:
+        cmd: luarocks install {{item|quote}}
+
+    - name: Installing npm packages
+      loop: "{{ npm_packages }}"
+      community.general.npm:
+        name: "{{item|quote}}"
+        state: latest
+        global: yes
+    - name: Installing pip packages
+      loop: "{{ pip_packages }}"
+      ansible.builtin.pip:
+        name: "{{item|quote}}"
+        state: latest
