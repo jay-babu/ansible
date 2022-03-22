@@ -1,0 +1,38 @@
+---
+- name: Install Core
+  hosts: localhost
+  become: true
+  vars:
+    xbps_packages:
+      - Signal-Desktop
+      - alsa-plugins-pulseaudio
+      - apulse
+      - github-cli
+      - kde5
+      - mpv
+      - nvidia
+      - void-repo-nonfree
+      - void-repo-multilib
+      - lutris
+      - vulkan-loader-32bit
+      - wine-32bit
+      - wine-mono
+      - pamixer
+      - pavucontrol
+      - pulseaudio
+      - xorg
+
+  tasks:
+    - name: Install xbps packages
+      community.general.xbps:
+        name: "{{xbps_packages}}"
+        state: latest
+    - name: remove
+      community.general.xbps:
+        name: "{{item}}"
+        state: absent
+      loop:
+        - mono
+        - void-repo-multilib-nonfree
+        - steam
+
