@@ -7,12 +7,18 @@
       - Signal-Desktop
       - alsa-plugins-pulseaudio
       - apulse
+      - bspwm
+      - binutils
+      - curl
       - github-cli
+      - firefox
       - kde5
       - mpv
+      - openntpd
       - nvidia
       - void-repo-nonfree
       - void-repo-multilib
+      - void-repo-multilib-nonfree
       - lutris
       - vulkan-loader-32bit
       - wine-32bit
@@ -20,19 +26,22 @@
       - pamixer
       - pavucontrol
       - pulseaudio
+      - tar
+      - xbps
       - xorg
+      - xz
 
   tasks:
     - name: Install xbps packages
       community.general.xbps:
-        name: "{{xbps_packages}}"
+        name: "{{item}}"
         state: latest
+      loop: "{{xbps_packages}}"
     - name: remove
       community.general.xbps:
         name: "{{item}}"
         state: absent
       loop:
         - mono
-        - void-repo-multilib-nonfree
         - steam
 

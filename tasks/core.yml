@@ -24,9 +24,9 @@
       - node@16
       - openjdk@11
       - protobuf
-      - protobuf
       - ripgrep
       - shellcheck
+      - stow
       - stylua
       - tmux
     install_homebrew_if_missing: true
@@ -63,25 +63,20 @@
         - not homebrew_check.stat.exists
         - not install_homebrew_if_missing
     - name:
-      shell: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      shell: bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       when:
         - not homebrew_check.stat.exists
-        - not install_homebrew_if_missing
+        - install_homebrew_if_missing
 
   tasks:
     - name: Updating Homebrew
       community.general.homebrew:
         update_homebrew: yes
-      when:
-        - homebrew_check.stat.exists
 
     - name: Upgrading Homebrew Packages
       community.general.homebrew:
         name: "{{ brew_packages }}"
         upgrade_all: yes
-      register: result
-      until: result is successful
-      when: homebrew_check.stat.exists
 
     - name: Installing go packages
       loop: "{{ go_install_packages }}"
