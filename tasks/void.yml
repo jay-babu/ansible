@@ -9,6 +9,8 @@
       - apulse
       - bspwm
       - binutils
+      - libX11-devel
+      - libXft-devel
       - curl
       - github-cli
       - firefox
