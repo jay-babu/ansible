@@ -30,13 +30,16 @@
       - xbps
       - xorg
       - xz
+      - wget
+    xdebs:
+      - { link: "https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.66-1_amd64.deb", name: "vivaldi-stable-5.1.2567.66_1"}
 
   tasks:
     - name: Install xbps packages
       community.general.xbps:
         name: "{{item}}"
         state: latest
-      loop: "{{xbps_packages}}"
+      loop: "{{xbps_packages | flatten(1)}}"
     - name: remove
       community.general.xbps:
         name: "{{item}}"
@@ -44,4 +47,11 @@
       loop:
         - mono
         - steam
+    - name: Install xdebs
+      ansible.builtin.shell:
+        cmd: wget "{{item.link}}" -O "/tmp/{{item.name}}.deb" && /home/void/ansible/submodules/xdeb/xdeb -Sde "/tmp/{{item.name}}.deb" && xbps-install -yR /home/void/.config/xdeb/binpkgs "{{item.name}}"
+      loop: "{{xdebs}}"
+      args:
+        executable: /home/linuxbrew/.linuxbrew/bin/fish
+        chdir: /home/void/.config/xdeb
 

@@ -4,3 +4,6 @@
 [submodule "submodules/st"]
 	path = submodules/st
 	url = https://git.suckless.org/st
+[submodule "submodules/xdeb"]
+	path = submodules/xdeb
+	url = https://github.com/toluschr/xdeb.git
