@@ -1,0 +1,6 @@
+[submodule "st"]
+	path = st
+	url = https://git.suckless.org/st
+[submodule "submodules/st"]
+	path = submodules/st
+	url = https://git.suckless.org/st
