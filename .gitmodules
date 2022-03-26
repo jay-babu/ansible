@@ -7,3 +7,6 @@
 [submodule "submodules/xdeb"]
 	path = submodules/xdeb
 	url = https://github.com/toluschr/xdeb.git
+[submodule "submodules/tabbed"]
+	path = submodules/tabbed
+	url = https://git.suckless.org/tabbed

@@ -67,6 +67,11 @@
       when:
         - not homebrew_check.stat.exists
         - install_homebrew_if_missing
+    - name: NVChad
+      ansible.builtin.git:
+        depth: 1
+        repo: https://github.com/NvChad/NvChad
+        dest: ~/.config/nvim
 
   tasks:
     - name: Updating Homebrew

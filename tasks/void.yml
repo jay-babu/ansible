@@ -4,37 +4,53 @@
   become: true
   vars:
     xbps_packages:
-      - Signal-Desktop
+      - alacritty
       - alsa-plugins-pulseaudio
       - apulse
-      - bspwm
+      - base-devel
       - binutils
+      - bspwm
+      - curl
+      - extra-cmake-modules
+      - firefox
+      - github-cli
+      - gst-libav
+      - kde5
+      - liblz4-devel
       - libX11-devel
       - libXft-devel
-      - curl
-      - github-cli
-      - firefox
-      - kde5
-      - mpv
-      - openntpd
-      - nvidia
-      - void-repo-nonfree
-      - void-repo-multilib
-      - void-repo-multilib-nonfree
       - lutris
-      - vulkan-loader-32bit
-      - wine-32bit
-      - wine-mono
+      - mpv
+      - mpv-devel
+      - nvidia
+      - openntpd
       - pamixer
       - pavucontrol
+      - plasma-framework
+      - plasma-workspace-devel
       - pulseaudio
+      - python3-websockets
+      - qt5-declarative
+      - qt5-webchannel
+      - qt5-websockets
+      - Signal-Desktop
       - tar
+      - void-repo-multilib
+      - void-repo-multilib-nonfree
+      - void-repo-nonfree
+      - vulkan-headers
+      - vulkan-loader-32bit
+      - wget
+      - wine
+      - wine-mono
       - xbps
       - xorg
       - xz
-      - wget
     xdebs:
       - { link: "https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.66-1_amd64.deb", name: "vivaldi-stable-5.1.2567.66_1"}
+    make_installs:
+      - st
+      - tabbed
 
   tasks:
     - name: Install xbps packages
@@ -56,4 +72,14 @@
       args:
         executable: /home/linuxbrew/.linuxbrew/bin/fish
         chdir: /home/void/.config/xdeb
+    - name: Install make packages
+      ansible.builtin.shell:
+        cmd: cd "../submodules/{{item}}" && make clean install 
+      loop: "{{make_installs}}"
+    - name: Link make packages
+      file:
+        src: "/home/void/ansible/submodules/{{item}}/{{item}}"
+        dest: "/usr/local/bin"
+        state: link
+      loop: "{{make_installs}}"
 
