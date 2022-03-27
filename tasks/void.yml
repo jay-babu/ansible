@@ -33,12 +33,20 @@
       - qt5-declarative
       - qt5-webchannel
       - qt5-websockets
+      - readline-devel
       - Signal-Desktop
       - tar
+      - libgcc-32bit
+      - libstdc++-32bit
+      - libdrm-32bit
+      - libglvnd-32bit
+      - steam
+      - nvidia-libs-32bit
+      - mono
       - void-repo-multilib
       - void-repo-multilib-nonfree
       - void-repo-nonfree
-      - vulkan-headers
+      - Vulkan-Headers
       - vulkan-loader-32bit
       - wget
       - wine

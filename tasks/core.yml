@@ -17,6 +17,7 @@
       - gitui
       - go
       - hadolint
+      - lazygit
       - lua-language-server
       - luarocks
       - mpv
