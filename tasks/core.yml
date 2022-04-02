@@ -75,14 +75,19 @@
         dest: ~/.config/nvim
 
   tasks:
-    - name: Updating Homebrew
-      community.general.homebrew:
-        update_homebrew: yes
-
     - name: Upgrading Homebrew Packages
       community.general.homebrew:
         name: "{{ brew_packages }}"
+        update_homebrew: yes
         upgrade_all: yes
+    
+    - name: "Add fish shell to /etc/shells"
+      become: true
+      ansible.builtin.lineinfile:
+        line: /home/linuxbrew/.linuxbrew/bin/fish
+        path: /etc/shells
+        state: present
+        search_string: /home/linuxbrew/.linuxbrew/bin/fish
 
     - name: Installing go packages
       loop: "{{ go_install_packages }}"

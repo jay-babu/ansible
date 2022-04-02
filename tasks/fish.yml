@@ -4,13 +4,13 @@
   become: false
   vars:
     fisher_plugins:
-      - jethrokuan/z
+      - andreiborisov/sponge
+      - catppuccin/fish
+      - edc/bass
       - IlanCosman/tide@v5
+      - jethrokuan/z
       - jhillyerd/plugin-git
       - PatrickF1/fzf.fish
-      - edc/bass
-      - andreiborisov/sponge
-      - IlanCosman/tide@v5
     fisher_dependencies:
       - fish
   pre_tasks:
