@@ -36,6 +36,7 @@
     upgrade_homebrew_packages: true
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
+      - golang.org/x/tools/gopls@latest
       - google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
       - google.golang.org/protobuf/cmd/protoc-gen-go@latest
       - mvdan.cc/sh/v3/cmd/shfmt@latest
@@ -82,7 +83,7 @@
         name: "{{ brew_packages }}"
         update_homebrew: yes
         upgrade_all: yes
-    
+
     - name: "Add fish shell to /etc/shells"
       become: true
       ansible.builtin.lineinfile:

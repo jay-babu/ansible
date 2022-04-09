@@ -4,6 +4,7 @@
   become: false
   vars:
     fisher_plugins:
+      - jorgebucaran/fisher
       - andreiborisov/sponge
       - catppuccin/fish
       - edc/bass
