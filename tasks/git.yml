@@ -2,7 +2,7 @@
 - name: Setup Git
   hosts: localhost
   become: false
-  
+
   tasks:
     - name: Configure Email
       community.general.git_config:
@@ -14,4 +14,8 @@
         name: user.name
         scope: global
         value: "Jay Patel"
-
+    - name: Configure Submodule Recurse
+      community.general.git_config:
+        name: submodule.recurse
+        scope: global
+        value: "true"
