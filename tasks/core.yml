@@ -77,6 +77,13 @@
         depth: 1
         repo: https://github.com/NvChad/NvChad
         dest: ~/.config/nvim
+    - name: "Adding brew to /etc/environment"
+      become: true
+      ansible.builtin.lineinfile:
+        line: PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/brew"
+        path: /etc/environment
+        state: present
+        search_string: PATH="$PATH:/home/linuxbrew/.linuxbrew/bin/brew"
 
   tasks:
     - name: Upgrading Homebrew Packages
