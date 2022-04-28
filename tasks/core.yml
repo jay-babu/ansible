@@ -52,9 +52,10 @@
       - solidity-language-server
       - typescript-language-server
     pip_packages:
+      - protontricks
       - pynvim
       - pyright
-      - protontricks
+      - semgrep
 
   pre_tasks:
     - name: Ensuring Homebrew Is Installed
