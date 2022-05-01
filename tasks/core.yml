@@ -73,10 +73,10 @@
       when:
         - not homebrew_check.stat.exists
         - install_homebrew_if_missing
-    - name: NVChad
+    - name: AstroNvim
       ansible.builtin.git:
         depth: 1
-        repo: https://github.com/NvChad/NvChad
+        repo: https://github.com/AstroNvim/AstroNvim.git
         dest: ~/.config/nvim
     - name: "Adding brew to /etc/environment"
       become: true
