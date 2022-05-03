@@ -46,6 +46,7 @@
     npm_packages:
       - npm
       - neovim
+      - eslint_d
       - bash-language-server
       - vscode-langservers-extracted
       - graphql-language-service-cli
