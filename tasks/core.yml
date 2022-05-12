@@ -76,9 +76,13 @@
         - install_homebrew_if_missing
     - name: AstroNvim
       ansible.builtin.git:
-        depth: 1
         repo: https://github.com/AstroNvim/AstroNvim.git
         dest: ~/.config/nvim
+    - name: Dotfiles
+      ansible.builtin.git:
+        repo: https://github.com/jayp0521/dotfiles.git
+        dest: ~/dotfiles
+        track_submodules: true
     - name: "Adding brew to /etc/environment"
       become: true
       ansible.builtin.lineinfile:
