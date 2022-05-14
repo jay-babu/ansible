@@ -16,6 +16,7 @@
       - git
       - gitui
       - go
+      - jq
       - hadolint
       - lazygit
       - lua-language-server
@@ -41,6 +42,7 @@
       - google.golang.org/protobuf/cmd/protoc-gen-go@latest
       - mvdan.cc/gofumpt@latest
       - mvdan.cc/sh/v3/cmd/shfmt@latest
+      - honnef.co/go/tools/cmd/staticcheck@latest
     lua_packages:
       - luacheck
     npm_packages:
@@ -97,6 +99,19 @@
         name: "{{ brew_packages }}"
         update_homebrew: yes
         upgrade_all: yes
+
+    - name: Download WT tool 
+      become: true
+      get_url:
+        url: https://github.com/yankeexe/git-worktree-switcher/releases/download/0.1.0/wt
+        dest: /usr/local/bin/wt
+        mode: "0755"
+
+    - name: Download WT Completions
+      become: false
+      get_url:
+        url: https://github.com/yankeexe/git-worktree-switcher/releases/download/0.1.0/wt.fish
+        dest: ~/.config/fish/completions/wt.fish
 
     - name: "Add fish shell to /etc/shells"
       become: true
