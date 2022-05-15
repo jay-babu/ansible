@@ -1,19 +1,14 @@
 ---
-- name: Setup Git
+- name: Setup Code Repos
   hosts: localhost
   become: false
 
   tasks:
-    - name: Configure Name
+    - name: Configure Email
       community.general.git_config:
-        name: user.name
+        name: user.email
         scope: global
-        value: "Jay Patel"
-    - name: Configure Submodule Recurse
-      community.general.git_config:
-        name: submodule.recurse
-        scope: global
-        value: "true"
+        value: "36803168+jayp0521@users.noreply.github.com"
     - name: Git Clone Coding Packages
       ansible.builtin.git:
         repo: "{{ item.repo }}"
