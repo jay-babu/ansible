@@ -14,14 +14,4 @@
         name: submodule.recurse
         scope: global
         value: "true"
-    - name: Git Clone Coding Packages
-      ansible.builtin.git:
-        repo: "{{ item.repo }}"
-        dest: "{{ item.dest }}"
-        track_submodules: true
-        bare: true
-      with_items:
-        - { repo: "https://github.com/Architech-App/PlateModel.git", dest: "~/code/PlateModel" }
-        - { repo: "https://github.com/Architech-App/PlateAPI.git", dest: "~/code/PlateAPI" }
-        - { repo: "https://github.com/Architech-App/PlateWeb.git", dest: "~/code/PlateWeb" }
         
