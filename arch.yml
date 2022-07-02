@@ -1,0 +1,15 @@
+- hosts: localhost
+  pre_tasks:
+    - name: Pacman Upgrade
+      become: true
+      pacman:
+        update_cache: yes
+        upgrade: yes
+      tags:
+        - install
+        - core
+- import_playbook: tasks/arch.yml
+- import_playbook: tasks/core.yml
+- import_playbook: tasks/fish.yml
+- import_playbook: tasks/git.yml
+- import_playbook: tasks/repo.yml

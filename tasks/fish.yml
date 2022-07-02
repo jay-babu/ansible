@@ -29,7 +29,12 @@
   tasks:
     - name: "Install Fisher Plugins"
       loop: "{{ fisher_plugins }}"
+      args:
+        executable: /bin/fish
       ansible.builtin.shell:
         cmd: fisher install {{item|quote}}
-      args:
-        executable: /home/linuxbrew/.linuxbrew/bin/fish
+    - name: Download WT Completions
+      become: false
+      get_url:
+        url: https://github.com/yankeexe/git-worktree-switcher/releases/download/0.1.0/wt.fish
+        dest: ~/.config/fish/completions/wt.fish

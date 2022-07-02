@@ -1,0 +1,36 @@
+---
+- name: Install Arch
+  hosts: localhost
+  become: false
+  tasks:
+    - name: Install the latest version of packages
+      become: true
+      ansible.builtin.package:
+        name:
+          - bat
+          - cmake
+          - exa
+          - fish
+          - fisher
+          - fzf
+          - gcc
+          - github-cli
+          - git
+          - go
+          - jq
+          - lazygit
+          - lua-language-server
+          - luarocks
+          - mpv
+          - neovim
+          - npm
+          - nodejs
+          - jdk11-openjdk
+          - protobuf
+          - ripgrep
+          - shellcheck
+          - stow
+          - stylua
+          - tmux
+        state: latest
+
