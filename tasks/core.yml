@@ -75,8 +75,4 @@
       ansible.builtin.pip:
         name: "{{item|quote}}"
         state: latest
-    - name: Change User Shell
-      become: true
-      ansible.builtin.command: usermod --shell /bin/fish {{ ansible_env.USER }}
-      changed_when: false
 
