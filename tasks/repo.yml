@@ -1,6 +1,6 @@
 ---
 - name: Setup Code Repos
-  hosts: localhost
+  hosts: all
   become: false
 
   tasks:

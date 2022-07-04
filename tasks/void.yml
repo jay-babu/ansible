@@ -1,6 +1,6 @@
 ---
 - name: Install Core
-  hosts: localhost
+  hosts: all
   become: true
   vars:
     xbps_packages:

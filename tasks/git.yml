@@ -1,6 +1,6 @@
 ---
 - name: Setup Git
-  hosts: localhost
+  hosts: all
   become: false
 
   tasks:

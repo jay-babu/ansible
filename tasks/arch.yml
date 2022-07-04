@@ -1,6 +1,6 @@
 ---
 - name: Install Arch
-  hosts: localhost
+  hosts: all
   become: false
   tasks:
     - name: Install the latest version of packages

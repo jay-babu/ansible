@@ -1,6 +1,6 @@
 ---
 - name: Install Core
-  hosts: localhost
+  hosts: all
   become: false
   vars:
     brew_packages:

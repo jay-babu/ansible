@@ -1,6 +1,6 @@
 ---
 - name: Install Core
-  hosts: localhost
+  hosts: all
   become: false
   vars:
     go_install_packages:

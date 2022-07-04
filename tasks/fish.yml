@@ -1,6 +1,6 @@
 ---
 - name: Install Fish Plugins
-  hosts: localhost
+  hosts: all
   become: false
   vars:
     fisher_plugins:
