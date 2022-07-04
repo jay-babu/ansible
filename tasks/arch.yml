@@ -33,4 +33,10 @@
           - stylua
           - tmux
         state: latest
-
+    - name: "Adding dvorak to /etc/vconsole.conf"
+      become: true
+      ansible.builtin.lineinfile:
+        line: KEYMAP=dvorak
+        path: /etc/vconsole.conf
+        state: present
+        search_string: KEYMAP=dvorak
