@@ -13,6 +13,7 @@
           - fish
           - fisher
           - fzf
+          - linux-headers
           - gcc
           - github-cli
           - git
