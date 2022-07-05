@@ -9,30 +9,33 @@
         name:
           - bat
           - cmake
+          - discord
           - exa
           - fish
           - fisher
           - fzf
-          - linux-headers
           - gcc
-          - github-cli
           - git
+          - github-cli
           - go
+          - jdk11-openjdk
           - jq
           - lazygit
+          - linux-headers
           - lua-language-server
           - luarocks
           - mpv
           - neovim
-          - npm
           - nodejs
-          - jdk11-openjdk
+          - npm
           - protobuf
           - ripgrep
           - shellcheck
           - stow
           - stylua
           - tmux
+          - wget
+          - which
         state: latest
     - name: "Adding dvorak to /etc/vconsole.conf"
       become: true
