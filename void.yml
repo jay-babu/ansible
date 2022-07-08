@@ -1,6 +1,15 @@
 - hosts: all
+  pre_tasks:
+  - name: XBPS Upgrade
+    become: true
+    xbps:
+      update_cache: yes
+      upgrade: yes
+    tags:
+      - install
+      - core
+- import_playbook: tasks/void.yml
 - import_playbook: tasks/core.yml
 - import_playbook: tasks/fish.yml
 - import_playbook: tasks/git.yml
-- import_playbook: tasks/void.yml
 

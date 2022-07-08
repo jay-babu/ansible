@@ -3,91 +3,44 @@
   hosts: all
   become: true
   vars:
-    xbps_packages:
-      - alacritty
-      - alsa-plugins-pulseaudio
-      - apulse
-      - base-devel
-      - binutils
-      - bspwm
-      - curl
-      - extra-cmake-modules
-      - firefox
-      - github-cli
-      - gst-libav
-      - kde5
-      - liblz4-devel
-      - libX11-devel
-      - libXft-devel
-      - lutris
-      - mpv
-      - mpv-devel
-      - nvidia
-      - openntpd
-      - pamixer
-      - pavucontrol
-      - plasma-framework
-      - plasma-workspace-devel
-      - pulseaudio
-      - python3-websockets
-      - qt5-declarative
-      - qt5-webchannel
-      - qt5-websockets
-      - readline-devel
-      - Signal-Desktop
-      - tar
-      - libgcc-32bit
-      - libstdc++-32bit
-      - libdrm-32bit
-      - libglvnd-32bit
-      - steam
-      - nvidia-libs-32bit
-      - mono
-      - void-repo-multilib
-      - void-repo-multilib-nonfree
-      - void-repo-nonfree
-      - Vulkan-Headers
-      - vulkan-loader-32bit
-      - wget
-      - wine
-      - wine-mono
-      - xbps
-      - xorg
-      - xz
     xdebs:
       - { link: "https://downloads.vivaldi.com/stable/vivaldi-stable_5.1.2567.66-1_amd64.deb", name: "vivaldi-stable-5.1.2567.66_1"}
-    make_installs:
-      - st
-      - tabbed
 
   tasks:
     - name: Install xbps packages
-      community.general.xbps:
-        name: "{{item}}"
+      ansible.builtin.package:
+        name:
+          - bat
+          - cmake
+          - cmatrix
+          - exa
+          - fish-shell
+          - fzf
+          - gcc
+          - git
+          - github-cli
+          - go
+          - openjdk11
+          - jq
+          - lazygit
+          - luarocks
+          - lua
+          - lua-devel
+          - mpv
+          - neovim
+          - nodejs
+          - protobuf
+          - ripgrep
+          - shellcheck
+          - stow
+          - tmux
+          - wget
+          - which
         state: latest
-      loop: "{{xbps_packages | flatten(1)}}"
-    - name: remove
-      community.general.xbps:
-        name: "{{item}}"
-        state: absent
-      loop:
-        - mono
-        - steam
-    - name: Install xdebs
-      ansible.builtin.shell:
-        cmd: wget "{{item.link}}" -O "/tmp/{{item.name}}.deb" && /home/void/ansible/submodules/xdeb/xdeb -Sde "/tmp/{{item.name}}.deb" && xbps-install -yR /home/void/.config/xdeb/binpkgs "{{item.name}}"
-      loop: "{{xdebs}}"
-      args:
-        executable: /home/linuxbrew/.linuxbrew/bin/fish
-        chdir: /home/void/.config/xdeb
-    - name: Install make packages
-      ansible.builtin.shell:
-        cmd: cd "../submodules/{{item}}" && make clean install 
-      loop: "{{make_installs}}"
-    - name: Link make packages
-      file:
-        src: "/home/void/ansible/submodules/{{item}}/{{item}}"
-        dest: "/usr/local/bin"
-        state: link
-      loop: "{{make_installs}}"
+    # - name: Install xdebs
+    #   ansible.builtin.shell:
+    #     cmd: wget "{{item.link}}" -O "/tmp/{{item.name}}.deb" && /home/void/ansible/submodules/xdeb/xdeb -Sde "/tmp/{{item.name}}.deb" && xbps-install -yR /home/void/.config/xdeb/binpkgs "{{item.name}}"
+    #   loop: "{{xdebs}}"
+    #   args:
+    #     chdir: /home/void/.config/xdeb
 

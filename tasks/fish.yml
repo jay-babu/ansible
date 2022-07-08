@@ -27,6 +27,11 @@
         msg: "Fish dependencies are installed"
       when: package_check is succeeded
   tasks:
+    - name: Download fisher
+      args:
+        executable: /bin/fish
+      ansible.builtin.shell:
+        cmd: curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
     - name: "Install Fisher Plugins"
       loop: "{{ fisher_plugins }}"
       args:
