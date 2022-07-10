@@ -3,9 +3,32 @@
   hosts: all
   become: false
   vars:
+    core_packages:
+      - bat
+      - cmake
+      - cmatrix
+      - exa
+      - fzf
+      - gcc
+      - git
+      - github-cli
+      - go
+      - gopls
+      - jq
+      - lazygit
+      - luarocks
+      - lua
+      - neovim
+      - nodejs
+      - protobuf
+      - ripgrep
+      - shellcheck
+      - stow
+      - tmux
+      - wget
+      - which
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
-      - golang.org/x/tools/gopls@latest
       - google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
       - google.golang.org/protobuf/cmd/protoc-gen-go@latest
       - mvdan.cc/gofumpt@latest
@@ -44,6 +67,11 @@
         track_submodules: true
 
   tasks:
+    - name: Install Core Packages
+      become: true
+      ansible.builtin.package:
+        name: "{{ core_packages }}"
+        state: latest
     - name: Download WT tool 
       become: true
       get_url:

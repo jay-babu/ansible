@@ -10,32 +10,10 @@
     - name: Install xbps packages
       ansible.builtin.package:
         name:
-          - bat
-          - cmake
-          - cmatrix
-          - exa
           - fish-shell
-          - fzf
-          - gcc
-          - git
-          - github-cli
-          - go
           - openjdk11
-          - jq
-          - lazygit
-          - luarocks
-          - lua
           - lua-devel
           - mpv
-          - neovim
-          - nodejs
-          - protobuf
-          - ripgrep
-          - shellcheck
-          - stow
-          - tmux
-          - wget
-          - which
         state: latest
     # - name: Install xdebs
     #   ansible.builtin.shell:
