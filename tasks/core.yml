@@ -5,22 +5,22 @@
   vars:
     core_packages:
       - bat
+      - cargo
       - cmake
       - cmatrix
       - exa
       - fzf
       - gcc
       - git
-      - github-cli
-      - go
+      - gh
+      - golang-go
       - gopls
+      - htop
       - jq
-      - lazygit
       - luarocks
-      - lua
       - neovim
       - nodejs
-      - protobuf
+      - protobuf-compiler
       - ripgrep
       - shellcheck
       - stow
@@ -29,11 +29,12 @@
       - which
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
+      - github.com/jesseduffield/lazygit@latest
       - google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
       - google.golang.org/protobuf/cmd/protoc-gen-go@latest
+      - honnef.co/go/tools/cmd/staticcheck@latest
       - mvdan.cc/gofumpt@latest
       - mvdan.cc/sh/v3/cmd/shfmt@latest
-      - honnef.co/go/tools/cmd/staticcheck@latest
     lua_packages:
       - luacheck
     npm_packages:
@@ -49,7 +50,7 @@
       - protontricks
       - pynvim
       - pyright
-      - semgrep
+      - pywal
 
   pre_tasks:
     - name: Tmux Plugin Manager
@@ -60,11 +61,6 @@
       ansible.builtin.git:
         repo: https://github.com/AstroNvim/AstroNvim.git
         dest: ~/.config/nvim
-    - name: Dotfiles
-      ansible.builtin.git:
-        repo: https://github.com/jayp0521/dotfiles.git
-        dest: ~/dotfiles
-        track_submodules: true
 
   tasks:
     - name: Install Core Packages
@@ -103,4 +99,20 @@
       ansible.builtin.pip:
         name: "{{item|quote}}"
         state: latest
+
+    # Font Logic
+    - name: ensure fonts directory
+      file:
+        path: "{{ lookup('env', 'HOME') }}/.fonts"
+        state: directory
+    - name: Hack exists
+      shell: "ls {{ lookup('env', 'HOME') }}/.fonts/Caskaydia*Cove*Nerd*Font*"
+      register: hack_exists
+      ignore_errors: yes
+    - name: Download Hack
+      when: hack_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
+        dest: "{{ lookup('env', 'HOME') }}/.fonts/"
+        remote_src: yes
 

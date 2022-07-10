@@ -1,0 +1,58 @@
+---
+- name: Install Kali Packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Vivaldi Keys
+      ansible.builtin.apt_key:
+        url: https://repo.vivaldi.com/archive/linux_signing_key.pub
+        state: present
+    - name: Add specified repository into sources list
+      ansible.builtin.apt_repository:
+        repo: deb https://repo.vivaldi.com/archive/deb/ stable main
+        state: present
+    - name: Install apt packages
+      ansible.builtin.package:
+        name:
+          - bspwm
+          - calc
+          - feh
+          - ffmpeg
+          - fish
+          - fonts-materialdesignicons-webfont
+          - mpd
+          - mpv
+          - neofetch
+          - network-manager
+          - nodejs
+          - npm
+          - picom
+          - polybar
+          - rofi
+          - sxhkd
+          - sxiv
+          - vivaldi-stable
+          - xclip
+        state: latest
+    - name: Enable
+      ansible.builtin.systemd:
+        enabled: yes
+        name: mpd
+    # Font Logic
+    - name: Hack exists
+      shell: "ls /usr/local/bin/networkmanager_dmenu*"
+      register: networkmanager_exists
+      ignore_errors: yes
+    - name: Download Hack
+      when: networkmanager_exists is failed
+      ansible.builtin.unarchive:
+        src: https://github.com/firecat53/networkmanager-dmenu/archive/refs/tags/v2.1.0.zip
+        dest: "/tmp/"
+        remote_src: yes
+    - name: Copy network-manager
+      when: networkmanager_exists is failed
+      ansible.builtin.copy:
+        src: /tmp/networkmanager-dmenu-2.1.0/networkmanager_dmenu
+        dest: /usr/local/bin/networkmanager_dmenu
+        mode: preserve
+
