@@ -26,7 +26,6 @@
       - stow
       - tmux
       - wget
-      - which
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
       - github.com/jesseduffield/lazygit@latest
@@ -51,6 +50,7 @@
       - pynvim
       - pyright
       - pywal
+      - ueberzug
 
   pre_tasks:
     - name: Tmux Plugin Manager

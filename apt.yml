@@ -4,10 +4,12 @@
       become: true
       apt:
         update_cache: true
+        upgrade: true
         state: present
       tags:
         - install
         - core
+- import_playbook: tasks/apt.yml
 - import_playbook: tasks/core.yml
 - import_playbook: tasks/fish.yml
 - import_playbook: tasks/git.yml

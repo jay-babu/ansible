@@ -1,0 +1,22 @@
+---
+- name: Install APT
+  hosts: all
+  become: false
+  vars:
+    ppa_list:
+      - ppa:neovim-ppa/stable
+    apt_packages:
+      - libxext-dev
+      - fish
+  tasks:
+    - name: Install PPA
+      become: true
+      loop: "{{ ppa_list }}"
+      ansible.builtin.apt_repository:
+        repo: "{{item}}"
+        state: present
+    - name: Install Apt Packages
+      become: true
+      ansible.builtin.package:
+        name: "{{ apt_packages }}"
+        state: latest
