@@ -23,9 +23,13 @@
       - protobuf-compiler
       - ripgrep
       - shellcheck
+      - solc
       - stow
       - tmux
       - wget
+    cargo_packages:
+      - stylua
+      - tree-sitter-cli
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
       - github.com/jesseduffield/lazygit@latest
@@ -79,6 +83,11 @@
       loop: "{{ go_install_packages }}"
       ansible.builtin.shell:
         cmd: go install {{item|quote}}
+    - name: Installing cargo packages
+      community.general.cargo:
+        name: "{{cargo_packages}}"
+        path: /usr/local
+        state: latest
 
     - name: Installing luarocks packages
       become: true

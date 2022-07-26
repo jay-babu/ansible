@@ -5,6 +5,7 @@
   vars:
     ppa_list:
       - ppa:neovim-ppa/stable
+      - ppa:ethereum/ethereum
     apt_packages:
       - libxext-dev
       - fish
