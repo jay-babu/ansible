@@ -10,6 +10,7 @@
     apt_packages:
       - libxext-dev
       - fish
+      - openjdk-17-jdk
   tasks:
     - name: Install PPA
       become: true
