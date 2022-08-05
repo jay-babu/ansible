@@ -7,10 +7,8 @@
       become: true
       ansible.builtin.package:
         name:
-          - bat
           - cmake
           - discord
-          - exa
           - fish
           - fisher
           - fzf
@@ -22,19 +20,16 @@
           - jq
           - lazygit
           - linux-headers
-          - lua-language-server
           - luarocks
           - mpv
           - neovim
           - nodejs
           - npm
           - protobuf
-          - ripgrep
-          - shellcheck
-          - stow
+          - solidity
           - stylua
-          - tmux
-          - wget
+          - rustup
+          - vivaldi
           - which
         state: latest
     - name: "Adding dvorak to /etc/vconsole.conf"
