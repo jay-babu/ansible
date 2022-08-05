@@ -52,6 +52,7 @@
       - pyright
       - pywal
       - ueberzug
+      - virtualenv
 
   pre_tasks:
     - name: Tmux Plugin Manager
