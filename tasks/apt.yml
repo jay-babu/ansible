@@ -11,6 +11,7 @@
       - libxext-dev
       - fish
       - openjdk-17-jdk
+      - python3.10-venv
   tasks:
     - name: Install PPA
       become: true
