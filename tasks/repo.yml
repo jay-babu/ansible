@@ -16,9 +16,6 @@
         track_submodules: true
         bare: true
       with_items:
-        - { repo: "https://github.com/Architech-App/PlateModel.git", dest: "~/code/PlateModel" }
-        - { repo: "https://github.com/Architech-App/PlateAPI.git", dest: "~/code/PlateAPI" }
-        - { repo: "https://github.com/Architech-App/PlateWeb.git", dest: "~/code/PlateWeb" }
         - { repo: "https://github.com/jayp0521/supreme-doodle.git", dest: "~/code/supreme-doodle" }
     - name: Git Clone Coding Packages
       ansible.builtin.git:
