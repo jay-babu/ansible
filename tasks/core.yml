@@ -16,6 +16,7 @@
       - htop
       - jq
       - luarocks
+      - mlocate
       - neovim
       - nodejs
       - ripgrep
@@ -53,6 +54,8 @@
       - pywal
       - ueberzug
       - virtualenv
+    gem_packages:
+      - tmuxinator
 
   pre_tasks:
     - name: Tmux Plugin Manager
@@ -107,6 +110,12 @@
       ansible.builtin.pip:
         name: "{{item|quote}}"
         state: latest
+    - name: Installing gem packages
+      loop: "{{ gem_packages }}"
+      community.general.gem:
+        name: "{{item|quote}}"
+        state: latest
+        include_doc: yes
 
     # Font Logic
     - name: ensure fonts directory
