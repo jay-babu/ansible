@@ -24,5 +24,6 @@
         track_submodules: true
       with_items:
         - { repo: "https://github.com/jayp0521/dotfiles.git", dest: "~/dotfiles" }
+        - { repo: "https://github.com/jayp0521/polybar-scripts.git", dest: "~/.config/polybar/polybar-scripts"}
         - { repo: "https://github.com/dgileadi/vscode-java-decompiler.git", dest: "~/.local/share/vscode-java-decompiler"}
 

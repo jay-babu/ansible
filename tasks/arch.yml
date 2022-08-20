@@ -27,15 +27,17 @@
           - neovim
           - nodejs
           - npm
-          - pipewire-pulse
+          - pacman-contrib
           - pamixer
+          - pipewire-pulse
           - protobuf
-          - solidity
-          - stylua
           - rubygems
           - rustup
+          - solidity
+          - stylua
           - vivaldi
           - which
+          - xorg-xinput
         state: latest
     - name: "Adding dvorak to /etc/vconsole.conf"
       become: true
