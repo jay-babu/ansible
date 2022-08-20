@@ -33,6 +33,7 @@
           - protobuf
           - rubygems
           - rustup
+          - signal-desktop
           - solidity
           - stylua
           - vivaldi
