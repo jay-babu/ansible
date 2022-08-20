@@ -27,6 +27,8 @@
           - neovim
           - nodejs
           - npm
+          - pipewire-pulse
+          - pamixer
           - protobuf
           - solidity
           - stylua
