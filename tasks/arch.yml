@@ -2,9 +2,6 @@
 - name: Install Arch
   hosts: all
   become: false
-  vars:
-    flatpak_packages:
-      - com.valvesoftware.Steam
   tasks:
     - name: Install the latest version of packages
       become: true
@@ -21,7 +18,6 @@
           - github-cli
           - go
           - howdy
-          - flatpak
           - imagemagick
           - jdk11-openjdk
           - jq
@@ -45,11 +41,16 @@
           - vivaldi
           - which
           - xorg-xinput
+
+          # https://github.com/lutris/docs/blob/master/InstallingDrivers.md#arch--manjaro--other-arch-linux-derivatives
+          # https://github.com/lutris/docs/blob/master/WineDependencies.md#archantergosmanjaroother-arch-derivatives
+          - steam
+          - lutris
         state: latest
-    - name: Installing flatpaks
-      community.general.flatpak:
-        name: "{{ flatpak_packages }}"
-        state: present
+    # - name: Installing flatpaks
+    #   community.general.flatpak:
+    #     name: "{{ flatpak_packages }}"
+    #     state: present
     - name: "Adding dvorak to /etc/vconsole.conf"
       become: true
       ansible.builtin.lineinfile:
