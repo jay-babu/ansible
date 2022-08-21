@@ -2,6 +2,9 @@
 - name: Install Arch
   hosts: all
   become: false
+  vars:
+    flatpak_packages:
+      - com.valvesoftware.Steam
   tasks:
     - name: Install the latest version of packages
       become: true
@@ -17,6 +20,8 @@
           - git
           - github-cli
           - go
+          - howdy
+          - flatpak
           - imagemagick
           - jdk11-openjdk
           - jq
@@ -36,10 +41,15 @@
           - signal-desktop
           - solidity
           - stylua
+          - v4l-utils
           - vivaldi
           - which
           - xorg-xinput
         state: latest
+    - name: Installing flatpaks
+      community.general.flatpak:
+        name: "{{ flatpak_packages }}"
+        state: present
     - name: "Adding dvorak to /etc/vconsole.conf"
       become: true
       ansible.builtin.lineinfile:

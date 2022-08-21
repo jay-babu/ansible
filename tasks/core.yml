@@ -6,6 +6,7 @@
     core_packages:
       - bat
       - cargo
+      - catimg
       - cmake
       - cmatrix
       - exa
