@@ -37,10 +37,12 @@
           - signal-desktop
           - solidity
           - stylua
+          - telegram-desktop
           - v4l-utils
           - vivaldi
           - which
           - xorg-xinput
+          - zbar
 
           # https://github.com/lutris/docs/blob/master/InstallingDrivers.md#arch--manjaro--other-arch-linux-derivatives
           # https://github.com/lutris/docs/blob/master/WineDependencies.md#archantergosmanjaroother-arch-derivatives
