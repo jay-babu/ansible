@@ -14,4 +14,9 @@
         name: submodule.recurse
         scope: global
         value: "true"
-        
+    - name: Configure Auto Setup Remote
+      community.general.git_config:
+        name: push.autoSetupRemote
+        scope: global
+        value: "true"
+
