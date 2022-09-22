@@ -11,6 +11,7 @@
       - cmatrix
       - exa
       - fzf
+      - glow
       - gcc
       - git
       - gopls
