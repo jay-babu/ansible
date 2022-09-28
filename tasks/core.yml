@@ -4,6 +4,7 @@
   become: false
   vars:
     core_packages:
+      - asciinema
       - bat
       - cargo
       - catimg
@@ -24,6 +25,7 @@
       - ripgrep
       - shellcheck
       - stow
+      - socat
       - tmux
       - wget
     cargo_packages:
@@ -40,6 +42,7 @@
       - github.com/josharian/impl@latest
     lua_packages:
       - luacheck
+      - inspect
     npm_packages:
       - npm
       - neovim
@@ -95,7 +98,7 @@
       ansible.builtin.package:
         name: "{{ core_packages }}"
         state: latest
-    - name: Download WT tool 
+    - name: Download WT tool
       become: true
       get_url:
         url: https://github.com/yankeexe/git-worktree-switcher/releases/download/0.1.0/wt
@@ -154,4 +157,3 @@
         src: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/CascadiaCode.zip
         dest: "{{ lookup('env', 'HOME') }}/.fonts/"
         remote_src: yes
-

@@ -7,6 +7,7 @@
       - ppa:neovim-ppa/stable
       - ppa:ethereum/ethereum
       - ppa:fish-shell/release-3
+      - ppa:zanchey/asciinema
     apt_packages:
       - libxext-dev
       - fish
