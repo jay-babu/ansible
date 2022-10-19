@@ -17,7 +17,7 @@
           - git
           - github-cli
           - go
-          - howdy
+            # - howdy
           - imagemagick
           - jdk11-openjdk
           - jq
@@ -32,6 +32,8 @@
           - pamixer
           - pipewire-pulse
           - protobuf
+          - python-pip
+          - python-setuptools
           - rubygems
           - rustup
           - signal-desktop
@@ -46,17 +48,6 @@
 
           # https://github.com/lutris/docs/blob/master/InstallingDrivers.md#arch--manjaro--other-arch-linux-derivatives
           # https://github.com/lutris/docs/blob/master/WineDependencies.md#archantergosmanjaroother-arch-derivatives
-          - steam
-          - lutris
+          # - steam
+          # - lutris
         state: latest
-    # - name: Installing flatpaks
-    #   community.general.flatpak:
-    #     name: "{{ flatpak_packages }}"
-    #     state: present
-    - name: "Adding dvorak to /etc/vconsole.conf"
-      become: true
-      ansible.builtin.lineinfile:
-        line: KEYMAP=dvorak
-        path: /etc/vconsole.conf
-        state: present
-        search_string: KEYMAP=dvorak

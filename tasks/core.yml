@@ -19,6 +19,7 @@
       - htop
       - jq
       - luarocks
+      - make
       - mlocate
       - neovim
       - nodejs
