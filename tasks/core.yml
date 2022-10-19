@@ -110,7 +110,6 @@
       ansible.builtin.shell:
         cmd: go install {{item|quote}}
     - name: Installing cargo packages
-      become: true
       community.general.cargo:
         name: "{{cargo_packages}}"
         path: /usr/local
