@@ -41,6 +41,7 @@
       - mvdan.cc/gofumpt@latest
       - mvdan.cc/sh/v3/cmd/shfmt@latest
       - github.com/josharian/impl@latest
+      - github.com/spf13/cobra-cli@latest
     lua_packages:
       - luacheck
       - inspect
@@ -54,6 +55,7 @@
       - solidity-language-server
       - typescript-language-server
     pip_packages:
+      - ansible
       - protontricks
       - pynvim
       - pyright
@@ -113,7 +115,6 @@
     - name: Installing cargo packages
       community.general.cargo:
         name: "{{cargo_packages}}"
-        path: /usr/local
         state: latest
 
     - name: Installing luarocks packages
