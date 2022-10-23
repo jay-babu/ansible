@@ -11,10 +11,11 @@
       - cmake
       - cmatrix
       - exa
+      - figlet
       - fzf
-      - glow
       - gcc
       - git
+      - glow
       - gopls
       - htop
       - jq
@@ -25,8 +26,8 @@
       - nodejs
       - ripgrep
       - shellcheck
-      - stow
       - socat
+      - stow
       - tmux
       - wget
     cargo_packages:
