@@ -14,16 +14,7 @@
         repo: "{{ item.repo }}"
         dest: "{{ item.dest }}"
         track_submodules: true
-        bare: true
-      with_items:
-        - { repo: "https://github.com/jayp0521/supreme-doodle.git", dest: "~/code/supreme-doodle" }
-    - name: Git Clone Coding Packages
-      ansible.builtin.git:
-        repo: "{{ item.repo }}"
-        dest: "{{ item.dest }}"
-        track_submodules: true
       with_items:
         - { repo: "https://github.com/jayp0521/dotfiles.git", dest: "~/dotfiles" }
         - { repo: "https://github.com/jayp0521/polybar-scripts.git", dest: "~/.config/polybar/polybar-scripts"}
         - { repo: "https://github.com/dgileadi/vscode-java-decompiler.git", dest: "~/.local/share/vscode-java-decompiler"}
-
