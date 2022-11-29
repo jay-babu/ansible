@@ -18,11 +18,12 @@
       - glow
       - gopls
       - htop
+      - imagemagick
       - jq
       - luarocks
       - make
       - mlocate
-      - neovim
+      - neovim-nightly-bin
       - nodejs
       - ripgrep
       - shellcheck

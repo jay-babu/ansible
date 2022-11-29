@@ -25,7 +25,6 @@
           - linux-headers
           - luarocks
           - mpv
-          - neovim
           - nodejs
           - npm
           - pacman-contrib
