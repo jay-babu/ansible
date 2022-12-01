@@ -38,8 +38,15 @@
         executable: /bin/fish
       ansible.builtin.shell:
         cmd: fisher install {{item|quote}}
-    - name: Download WT Completions
-      become: false
+    - name: Create a Directory fish/conf.d
+      become: yes
+      file:
+        path: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/fish/conf.d"
+        state: directory
+        mode: 0755
+    - name: Download TokyoNight Fish
       get_url:
-        url: https://github.com/yankeexe/git-worktree-switcher/releases/download/0.1.0/wt.fish
-        dest: ~/.config/fish/completions/wt.fish
+        url: https://raw.githubusercontent.com/folke/tokyonight.nvim/main/extras/fish/tokyonight_storm.fish
+        dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.config/fish/conf.d"
+        force: true
+        mode: 0755
