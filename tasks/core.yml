@@ -11,6 +11,7 @@
       - cmatrix
       - exa
       - figlet
+      - fd
       - fzf
       - gcc
       - git
