@@ -19,7 +19,7 @@
           - go
             # - howdy
           - imagemagick
-          - jdk11-openjdk
+          - jdk17-openjdk
           - jq
           - lazygit
           - linux-headers
