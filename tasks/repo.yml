@@ -8,13 +8,13 @@
       community.general.git_config:
         name: user.email
         scope: global
-        value: "36803168+jayp0521@users.noreply.github.com"
+        value: "36803168+jay-babu@users.noreply.github.com"
     - name: Git Clone Coding Packages
       ansible.builtin.git:
         repo: "{{ item.repo }}"
         dest: "{{ item.dest }}"
         track_submodules: true
       with_items:
-        - { repo: "https://github.com/jayp0521/dotfiles.git", dest: "~/dotfiles" }
-        - { repo: "https://github.com/jayp0521/polybar-scripts.git", dest: "~/.config/polybar/polybar-scripts"}
+        - { repo: "https://github.com/jay-babu/dotfiles.git", dest: "~/dotfiles" }
+        - { repo: "https://github.com/jay-babu/polybar-scripts.git", dest: "~/.config/polybar/polybar-scripts"}
         - { repo: "https://github.com/dgileadi/vscode-java-decompiler.git", dest: "~/.local/share/vscode-java-decompiler"}
