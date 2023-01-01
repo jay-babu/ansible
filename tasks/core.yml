@@ -44,6 +44,8 @@
       - mvdan.cc/sh/v3/cmd/shfmt@latest
       - github.com/josharian/impl@latest
       - github.com/spf13/cobra-cli@latest
+      - github.com/jay-babu/ansible-local-exec@latest
+      - github.com/jay-babu/bare@latest
     lua_packages:
       - luacheck
       - inspect
