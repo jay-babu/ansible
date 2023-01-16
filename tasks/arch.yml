@@ -19,7 +19,7 @@
           - go
             # - howdy
           - ffmpegthumbnailer
-          - fontpreview-git
+          - fontpreview
           - imagemagick
           - jdk17-openjdk
           - jq
@@ -32,6 +32,7 @@
           - pacman-contrib
           - pamixer
           - pipewire-pulse
+          - poppler
           - protobuf
           - python-pip
           - python-setuptools
