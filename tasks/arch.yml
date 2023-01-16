@@ -18,6 +18,8 @@
           - github-cli
           - go
             # - howdy
+          - ffmpegthumbnailer
+          - fontpreview-git
           - imagemagick
           - jdk17-openjdk
           - jq
