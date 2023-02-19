@@ -37,6 +37,7 @@
       - stylua
       - tree-sitter-cli
       - bottom
+      - starship
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
       - github.com/jesseduffield/lazygit@latest
