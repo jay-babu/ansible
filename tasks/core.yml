@@ -25,7 +25,6 @@
       - luarocks
       - make
       - mlocate
-      - neovim-nightly-bin
       - nodejs
       - ripgrep
       - shellcheck
@@ -37,7 +36,6 @@
       - stylua
       - tree-sitter-cli
       - bottom
-      - starship
     go_install_packages:
       - github.com/google/wire/cmd/wire@latest
       - github.com/jesseduffield/lazygit@latest
@@ -57,14 +55,8 @@
       - npm
       - neovim
       - eslint_d
-      - bash-language-server
-      - vscode-langservers-extracted
-      - graphql-language-service-cli
-      - solidity-language-server
-      - typescript-language-server
     pip_packages:
       - ansible
-      - protontricks
       - pynvim
       - pyright
       - pywal
