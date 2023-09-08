@@ -10,7 +10,6 @@
           - aws-cli-v2
           - bc
           - cmake
-          - discord
           - fish
           - fisher
           - fzf
@@ -18,7 +17,6 @@
           - git
           - github-cli
           - go
-            # - howdy
           - ffmpegthumbnailer
           - imagemagick
           - jdk17-openjdk
@@ -30,20 +28,14 @@
           - nodejs
           - npm
           - pacman-contrib
-          - pamixer
           - poppler
           - protobuf
           - python-pip
           - python-setuptools
           - rubygems
-          - signal-desktop
-          - solidity
           - stylua
-          - telegram-desktop
           - v4l-utils
-          - vivaldi
           - which
-          - xorg-xinput
           - zbar
 
           # https://github.com/lutris/docs/blob/master/InstallingDrivers.md#arch--manjaro--other-arch-linux-derivatives
