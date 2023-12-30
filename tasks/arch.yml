@@ -31,6 +31,7 @@
           - poppler
           - protobuf
           - python-pip
+          - python-pipx
           - python-setuptools
           - rubygems
           - stylua
